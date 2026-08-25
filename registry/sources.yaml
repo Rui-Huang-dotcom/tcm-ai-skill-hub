@@ -1,0 +1,70 @@
+schema_version: 1
+last_verified: "2026-08-25"
+policy:
+  mode: "directory-and-router-only"
+  statement: "本仓库不镜像、不打包、不再发布来源项目的完整资料、代码、提示词或知识库。"
+sources:
+  - id: textbook-classics
+    name: "TCM.Skill"
+    repository: "https://github.com/YuanZHAO321/TCM.Skill"
+    learning_focus: "教材、方剂、中药、经典资料检索与知识整理"
+    routing_keywords: ["教材", "方剂", "中药", "经典", "出处", "条文"]
+    license_status: "CC BY-NC 4.0"
+    inclusion: "link-only"
+    notes: "使用时建议明确限定教材层、经典层或医家资料层。"
+  - id: classic-tutor
+    name: "TCM AI Tutor"
+    repository: "https://github.com/William84132/tcm-ai-tutor"
+    learning_focus: "经典学习路径、医案训练与多视角学习"
+    routing_keywords: ["伤寒论", "金匮要略", "学习计划", "章节复习", "医案训练"]
+    license_status: "No explicit license detected during 2026-08-25 audit"
+    inclusion: "link-only"
+    notes: "适合连续学习，不适合作为精确课程原话检索工具。"
+  - id: nihaisha-source
+    name: "nihaisha-nishi-tcm"
+    repository: "https://github.com/JuneYaooo/nihaisha-nishi-tcm"
+    learning_focus: "倪海厦课程原话、截图、PDF 与课次出处检索"
+    routing_keywords: ["倪海厦原话", "在哪一课", "截图", "PDF", "课次"]
+    license_status: "No explicit license detected during 2026-08-25 audit"
+    inclusion: "link-only"
+    notes: "重点是出处定位，而不是课程体系的替代式讲解。"
+  - id: nihaisha-framework
+    name: "倪海厦 Skill"
+    repository: "https://github.com/jangviktor-web/nihaixia"
+    learning_focus: "倪海厦课程体系、六经、方证与辨证框架学习"
+    routing_keywords: ["倪海厦", "六经", "方证", "课程体系", "辨证框架"]
+    license_status: "No explicit license detected during 2026-08-25 audit"
+    inclusion: "link-only"
+    notes: "回答时应标明为课程体系观点，并与教材结论区分。"
+  - id: huxishu
+    name: "胡希恕 Skill"
+    repository: "https://github.com/jangviktor-web/huxishu"
+    learning_focus: "胡希恕六经八纲与方证比较"
+    routing_keywords: ["胡希恕", "胡老", "六经八纲", "方证对应", "经方"]
+    license_status: "No explicit license detected during 2026-08-25 audit"
+    inclusion: "link-only"
+    notes: "回答时应标明为胡希恕体系观点。"
+  - id: huangyuanyu
+    name: "黄元御 Skill"
+    repository: "https://github.com/jangviktor-web/huangyuanyu"
+    learning_focus: "黄元御一气周流、土枢与气机升降框架"
+    routing_keywords: ["黄元御", "一气周流", "土枢", "气机升降", "左升右降"]
+    license_status: "No explicit license detected during 2026-08-25 audit"
+    inclusion: "link-only"
+    notes: "回答时应标明为黄元御体系观点。"
+  - id: wujutong
+    name: "吴鞠通 Skill"
+    repository: "https://github.com/jangviktor-web/wujutong"
+    learning_focus: "温病、三焦辨证与卫气营血学习"
+    routing_keywords: ["吴鞠通", "温病", "三焦辨证", "卫气营血"]
+    license_status: "MIT"
+    inclusion: "link-only"
+    notes: "即便原项目采用 MIT，本仓库第一版也不复制内容。"
+  - id: like-case-study
+    name: "李可 Skill"
+    repository: "https://github.com/jangviktor-web/likeskill"
+    learning_focus: "进阶医案与理论研究"
+    routing_keywords: ["李可", "医案", "假证", "进阶研究"]
+    license_status: "No explicit license detected during 2026-08-25 audit"
+    inclusion: "link-only"
+    notes: "仅用于文献和医案研究；不得转化为现实个案建议。"

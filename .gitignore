@@ -1,0 +1,15 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local audit artifacts and API captures
+audit/*.json
+audit/*-README.md
+audit/*-LICENSE.txt
+audit/fetch-status.txt
+
+# Temporary files
+*.tmp
+*.swp
