@@ -23,7 +23,6 @@
 
 当你的平台允许加载多个本地 Skill 或 GitHub 项目时，请按原作者说明安装你要用的来源项目，再加载本仓库的 `SKILL.md` 作为总入口。若平台不支持多 Skill，你仍可把本仓库作为选题与提问规范，点击原项目链接分别安装或查阅。
 
-> 公开仓库不必然允许复制或再发布。没有明确许可证时，默认版权规则可能限制复制、分发与衍生使用；因此本项目第一版只做导航、路由与使用协议。[1]
 
 ## 安装与快速开始
 
@@ -54,7 +53,7 @@ https://github.com/jangviktor-web/nihaixia
 
 #### 方式 B：使用 `npx skills add` 安装（适合已使用 Claude Code、Cursor、Codex、OpenClaw 等 Agent 的用户）
 
-本仓库根目录包含有效的 `SKILL.md`，可用通用 Skills CLI 从公开 GitHub 仓库安装：[2]
+本仓库根目录包含有效的 `SKILL.md`，可用通用 Skills CLI 从公开 GitHub 仓库安装：[1]
 
 ```bash
 npx skills add Rui-Huang-dotcom/tcm-ai-skill-hub
@@ -204,5 +203,4 @@ Hub 会把这识别为**系统学习任务**，优先安排学习路径；需要
 
 ## References
 
-[1]: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository "GitHub Docs: Licensing a repository"
-[2]: https://github.com/vercel-labs/skills/blob/main/README.md "Skills CLI: Install a Skill from GitHub"
+[1]: https://github.com/vercel-labs/skills/blob/main/README.md "Skills CLI: Install a Skill from GitHub"
