@@ -1,6 +1,6 @@
 ---
-name: 中医 AI 学习总 Skill
-slug: tcm-ai-learning-router
+name: TCM AI Skill Hub｜中医 AI 学习总入口
+slug: tcm-ai-skill-hub
 version: 0.1.0
 description: 按学习任务选择公开中医 AI Skill 的总入口；支持单一体系学习、来源溯查与明确标注的跨学派比较。
 license: MIT
