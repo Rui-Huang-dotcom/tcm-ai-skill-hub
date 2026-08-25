@@ -25,13 +25,70 @@
 
 > 公开仓库不必然允许复制或再发布。没有明确许可证时，默认版权规则可能限制复制、分发与衍生使用；因此本项目第一版只做导航、路由与使用协议。[1]
 
-## 快速开始
+## 安装与快速开始
 
-### 第一步：加载总 Skill
+先安装 **TCM AI Skill Hub**，再按你当前的学习任务加载一个或两个来源项目。Hub 是“选择器和回答协议”，不是八个来源项目的镜像包；因此，**Hub 安装成功不代表八个项目的资料都已进入你的 AI**。
 
-下载本仓库，并在你所使用的 AI Agent / Skill 平台中加载根目录的 [`SKILL.md`](./SKILL.md)。本文件不依赖某一个特定平台；若平台有自己的导入规范，请将其作为总提示词或工作流说明使用。
+### 第一步：选择一种安装方式
 
-### 第二步：按你的学习任务选择来源
+#### 方式 A：让 Agent 直接从 GitHub 创建 / 加载（最适合非技术用户）
+
+如果你使用的 Agent 或办公型 AI 支持读取 GitHub 项目，直接复制下面这段话发送给它：
+
+```text
+请根据这个 GitHub 项目创建并加载一个 Skill：
+https://github.com/Rui-Huang-dotcom/tcm-ai-skill-hub
+```
+
+加载 Hub 后，再根据下方“选哪个项目”的说明，让 Agent 继续读取你需要的**原始项目**。例如，要学习倪海厦体系，可以继续发送：
+
+```text
+请再根据这个 GitHub 项目创建并加载来源 Skill：
+https://github.com/jangviktor-web/nihaixia
+
+之后回答中医学习问题时，请按 TCM AI Skill Hub 的规则：
+标明资料范围与出处，并把课程体系观点和教材结论分开。
+```
+
+这也是最接近普通用户操作习惯的路径：**给地址 → 加载成功 → 用一个真实学习问题测试**。如果平台只支持上传文件，可下载本仓库的 `SKILL.md` 后上传，再按原作者 README 分别导入所需来源。
+
+#### 方式 B：使用 `npx skills add` 安装（适合已使用 Claude Code、Cursor、Codex、OpenClaw 等 Agent 的用户）
+
+本仓库根目录包含有效的 `SKILL.md`，可用通用 Skills CLI 从公开 GitHub 仓库安装：[2]
+
+```bash
+npx skills add Rui-Huang-dotcom/tcm-ai-skill-hub
+```
+
+也可以使用完整地址：
+
+```bash
+npx skills add https://github.com/Rui-Huang-dotcom/tcm-ai-skill-hub
+```
+
+常用选项如下；具体哪些 Agent 可被自动识别，以命令行的交互提示为准：
+
+```bash
+# 安装到当前项目中的 Claude Code
+npx skills add Rui-Huang-dotcom/tcm-ai-skill-hub --agent claude-code
+
+# 全局安装，让已支持的 Agent 在不同项目中都可使用
+npx skills add Rui-Huang-dotcom/tcm-ai-skill-hub --global
+```
+
+> `npx skills add` 安装的是本 Hub 的选择规则。要让 Agent 实际读取某个来源项目，仍需按该项目自己的 README 继续安装或导入；不要因为安装了 Hub，就假定所有来源资料都已加载。
+
+#### 方式 C：传统 GitHub 下载 / 克隆（适合任何平台）
+
+有命令行时可克隆：
+
+```bash
+git clone https://github.com/Rui-Huang-dotcom/tcm-ai-skill-hub.git
+```
+
+没有命令行时，可在 GitHub 页面点击 **Code → Download ZIP**，解压后将 `SKILL.md` 上传或复制到你正在使用的 Agent 项目中。然后根据下表点击并安装相应来源项目。
+
+### 第二步：先按学习任务选来源
 
 | 你现在要完成的任务 | 建议选择 | 适合问什么 |
 |---|---|---|
@@ -44,9 +101,38 @@
 | 学吴鞠通的温病、三焦辨证、卫气营血 | [吴鞠通 Skill](https://github.com/jangviktor-web/wujutong) | “按三焦辨证梳理某一温病章节的病位与治法。” |
 | 进阶研究李可医案与学术思路 | [李可 Skill](https://github.com/jangviktor-web/likeskill) | “仅做医案文献复盘，梳理该案的辨证链条与原文依据。” |
 
-### 第三步：直接提问
+## 最容易选错的两组项目
 
-将总 Skill 加载后，可以直接说：
+### 先分清：TCM.Skill 与 TCM AI Tutor 不是同一种工具
+
+它们都能帮助学习中医，但一个更像“带出处的资料检索台”，另一个更像“带练习与节奏的学习教练”。不必比较谁更大或谁更新；先看你当下想完成的是一次查询，还是一段连续学习。
+
+| 如果你现在想…… | 优先选 | 为什么 | 可以这样问 |
+|---|---|---|---|
+| 查一个教材概念、方剂、中药或经典出处 | [TCM.Skill](https://github.com/YuanZHAO321/TCM.Skill) | 重点在教材查询、经典溯源和知识整理 | “本次只用教材层资料解释【概念】，并说明教材、章节和文件位置。” |
+| 把《伤寒论》《金匮要略》或温病课程按章节学下去 | [TCM AI Tutor](https://github.com/William84132/tcm-ai-tutor) | 重点在学习路径、连续复习、医案训练与多学派视角 | “请按三周安排我的【书名】学习路径；每周给阅读任务、复盘题和错题回顾。” |
+| 先有整体学习计划，再回头逐点核对教材和经典 | **两个都可用，但分工使用** | 先用 Tutor 安排路径，再用 TCM.Skill 查具体概念和出处 | 不要要求其中一个项目替代另一个的核心任务 |
+
+一句话选择：**“我现在要查什么、出处在哪？”选 TCM.Skill；“我接下来几周怎么系统学？”选 TCM AI Tutor。**
+
+### 两个倪海厦相关项目：一个查“原话在哪里”，一个学“体系怎么想”
+
+这两个项目来自不同作者，解决的是不同问题；**不是谁更新、谁替代谁**。最简单的判断方法是：你要找证据，还是要学框架？
+
+| 对比项 | [nihaisha-nishi-tcm](https://github.com/JuneYaooo/nihaisha-nishi-tcm) | [倪海厦 Skill / nihaixia](https://github.com/jangviktor-web/nihaixia) |
+|---|---|---|
+| 主要任务 | 找课程原话和证据 | 学习课程体系和辨证框架 |
+| 资料入口 | 课程、课次、截图、PDF 页码 | 经典、本草、医案和讲义 |
+| 最适合的问题 | “这句话在哪一课？”“这个说法的截图或 PDF 在哪？” | “这套体系如何比较两个方证？”“六经与方证框架怎样理解？” |
+| 不适合替代 | 不以完整体系讲解为主要目标 | 不以定位某页截图或课程原话为主要目标 |
+
+如果你想确认“老师到底有没有说过这句话、出自哪里”，先选 **nihaisha-nishi-tcm**；如果你已经接触课程，想理解“这一套体系怎么分析、怎么比较方证”，选 **nihaixia**。需要两者时，正确顺序是：**先用 nihaisha-nishi-tcm 找到课程证据，再用 nihaixia 做体系化学习；回答时标明两种来源各自承担的作用。**
+
+> 无论选择哪一个，它们都只应用于课程学习和资料研究；不要把课程观点直接转化为个人诊断、处方或剂量判断。
+
+### 第三步：用一个真实学习问题测试
+
+不要一次装完八套。先选一套最贴合当前课程的来源，提出一个资料中应该有明确答案的问题；如果它能返回文件名、章节、原文位置或课程出处，才说明资料确实被调用。
 
 ```text
 我在学《伤寒论》。请使用胡希恕体系，比较桂枝汤与麻黄汤的方证差异。
@@ -56,11 +142,11 @@
 如果要比较两个体系，可以说：
 
 ```text
-请比较胡希恕与黄元御对这个问题的理论解释。
+请比较胡希恕与黄元御对这个理论问题的解释。
 要求：先分别陈述两家的观点和依据；再写共同点、分歧点；不能合并的地方请明确说明，不要得出个人诊疗建议。
 ```
 
-更多示例见 [`docs/USAGE.md`](./docs/USAGE.md)，完整路由逻辑见 [`SKILL.md`](./SKILL.md)。
+更多示例见 [`docs/USAGE.md`](./docs/USAGE.md)，八个来源的逐项说明见 [`docs/PROJECT_CATALOG.md`](./docs/PROJECT_CATALOG.md)，完整路由逻辑见 [`SKILL.md`](./SKILL.md)。
 
 ## 八个公开来源项目
 
@@ -101,3 +187,4 @@
 ## References
 
 [1]: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository "GitHub Docs: Licensing a repository"
+[2]: https://github.com/vercel-labs/skills/blob/main/README.md "Skills CLI: Install a Skill from GitHub"
