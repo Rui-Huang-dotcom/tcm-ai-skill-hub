@@ -19,12 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Clarification: This license applies only to the original navigation text,
-routing rules, registry, and documentation authored for this repository. It
-does not grant any rights to the eight linked third-party repositories, their
-source code, Skill files, prompts, course materials, books, data, or other
-content. Those materials remain subject to their respective authors' rights
-and licenses.
