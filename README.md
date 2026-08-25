@@ -26,9 +26,29 @@
 
 ## 安装与快速开始
 
-先安装 **TCM AI Skill Hub**，再按你当前的学习任务加载一个或两个来源项目。Hub 是“选择器和回答协议”，不是八个来源项目的镜像包；因此，**Hub 安装成功不代表八个项目的资料都已进入你的 AI**。
+你可以选择**一次安装 Hub 与全部 8 个来源项目**，或只安装 Hub 再按需加载来源。Hub 是“统一入口和回答协议”，不是八个来源项目的镜像包；因此，**只安装 Hub 本身不代表八个项目的资料都已进入你的 AI**。
 
 ### 第一步：选择一种安装方式
+
+#### 推荐：一次安装 Hub 与全部 8 个来源项目
+
+如果你使用 Claude Code、Cursor、Codex、OpenCode、OpenClaw 等支持 Agent Skills 的本地 Agent，推荐使用一键安装器。它会把总 Hub 与 8 个来源项目从各原作者的 GitHub 地址分别安装到你的电脑；你只需要执行一次命令。
+
+先预演，确认目标 Agent 和安装清单；这一步不会下载或修改任何内容：
+
+```bash
+npx github:Rui-Huang-dotcom/tcm-ai-skill-hub install-all --agent claude-code
+```
+
+确认无误后，加上 `--execute` 执行安装：
+
+```bash
+npx github:Rui-Huang-dotcom/tcm-ai-skill-hub install-all --agent claude-code --execute
+```
+
+将 `claude-code` 替换为你的目标 Agent。来源项目默认保存于 `~/.tcm-ai-skill-hub/sources/`，安装状态会写入 `install-status.json`。详细说明、更新方式和失败处理见 [`docs/INSTALL_ALL.md`](./docs/INSTALL_ALL.md)。
+
+> 这不是把第三方资料打包进本仓库。安装器会从每位原作者自己的公开地址直接克隆来源项目到你的电脑；Hub 只提供安装清单、统一入口和路由规则。
 
 #### 方式 A：让 Agent 直接从 GitHub 创建 / 加载（最适合非技术用户）
 
@@ -51,9 +71,9 @@ https://github.com/jangviktor-web/nihaixia
 
 这也是最接近普通用户操作习惯的路径：**给地址 → 加载成功 → 用一个真实学习问题测试**。如果平台只支持上传文件，可下载本仓库的 `SKILL.md` 后上传，再按原作者 README 分别导入所需来源。
 
-#### 方式 B：使用 `npx skills add` 安装（适合已使用 Claude Code、Cursor、Codex、OpenClaw 等 Agent 的用户）
+#### 方式 B：只安装总 Hub（不自动安装 8 个来源项目）
 
-本仓库根目录包含有效的 `SKILL.md`，可用通用 Skills CLI 从公开 GitHub 仓库安装：[1]
+如果你只想安装 Hub 的路由规则而不安装全部来源，本仓库根目录包含有效的 `SKILL.md`，可用通用 Skills CLI 安装：[1]
 
 ```bash
 npx skills add Rui-Huang-dotcom/tcm-ai-skill-hub

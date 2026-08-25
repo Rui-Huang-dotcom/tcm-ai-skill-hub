@@ -1,0 +1,16 @@
+{
+  "name": "tcm-ai-skill-hub",
+  "version": "0.2.0",
+  "private": true,
+  "description": "TCM AI Skill Hub 一键安装器：从原作者仓库安装中医 AI 学习来源项目",
+  "license": "MIT",
+  "bin": {
+    "tcm-ai-skill-hub": "bin/tcm-ai-skill-hub.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "install-all": "node bin/tcm-ai-skill-hub.js install-all"
+  }
+}

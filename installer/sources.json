@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-25",
+  "hub": {
+    "id": "tcm-ai-skill-hub",
+    "name": "TCM AI Skill Hub",
+    "repository": "https://github.com/Rui-Huang-dotcom/tcm-ai-skill-hub.git"
+  },
+  "sources": [
+    {
+      "id": "textbook-classics",
+      "name": "TCM.Skill",
+      "repository": "https://github.com/YuanZHAO321/TCM.Skill.git",
+      "defaultBranch": "main",
+      "installMode": "root-skill",
+      "purpose": "教材、方剂、中药与经典检索"
+    },
+    {
+      "id": "classic-tutor",
+      "name": "TCM AI Tutor",
+      "repository": "https://github.com/William84132/tcm-ai-tutor.git",
+      "defaultBranch": "main",
+      "installMode": "selected-skills",
+      "skills": ["经典临床", "黄帝内经", "经典基础", "诊疗基础", "文档内化工具"],
+      "purpose": "经典系统学习、课程复习与医案训练"
+    },
+    {
+      "id": "nihaisha-source",
+      "name": "倪海厦课程出处检索",
+      "repository": "https://github.com/JuneYaooo/nihaisha-nishi-tcm.git",
+      "defaultBranch": "main",
+      "installMode": "root-skill",
+      "purpose": "课程原话、课次、截图与 PDF 位置检索"
+    },
+    {
+      "id": "nihaisha-framework",
+      "name": "倪海厦体系学习",
+      "repository": "https://github.com/jangviktor-web/nihaixia.git",
+      "defaultBranch": "main",
+      "installMode": "root-skill",
+      "purpose": "六经、方证与辨证框架学习"
+    },
+    {
+      "id": "huxishu",
+      "name": "胡希恕 Skill",
+      "repository": "https://github.com/jangviktor-web/huxishu.git",
+      "defaultBranch": "main",
+      "installMode": "root-skill",
+      "purpose": "六经八纲与方证比较"
+    },
+    {
+      "id": "huangyuanyu",
+      "name": "黄元御 Skill",
+      "repository": "https://github.com/jangviktor-web/huangyuanyu.git",
+      "defaultBranch": "main",
+      "installMode": "root-skill",
+      "purpose": "一气周流与气机升降学习"
+    },
+    {
+      "id": "wujutong",
+      "name": "吴鞠通 Skill",
+      "repository": "https://github.com/jangviktor-web/wujutong.git",
+      "defaultBranch": "main",
+      "installMode": "root-skill",
+      "purpose": "温病、三焦辨证与卫气营血学习"
+    },
+    {
+      "id": "like-case-study",
+      "name": "李可 Skill",
+      "repository": "https://github.com/jangviktor-web/likeskill.git",
+      "defaultBranch": "master",
+      "installMode": "root-skill",
+      "purpose": "进阶医案与理论研究"
+    }
+  ]
+}

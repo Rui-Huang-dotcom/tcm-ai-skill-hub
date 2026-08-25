@@ -9,6 +9,7 @@ audit/*.json
 audit/*-README.md
 audit/*-LICENSE.txt
 audit/fetch-status.txt
+audit/source-installability.txt
 
 # Temporary files
 *.tmp
