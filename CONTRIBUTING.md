@@ -29,6 +29,8 @@
 
 维护者会先核对项目公开说明与许可证，再决定是否加入目录。没有明确许可证的项目，默认只收录名称、原始链接和独立编写的简短用途说明，不复制其资料或文件。
 
+每次核验来源时，请同步更新 `registry/sources.yaml` 中的 `license_status`、`github_license_classification`、`last_checked`、`redistribution` 与 `inclusion` 字段。GitHub 未识别许可证时，应使用 `no-license-detected`，而不是推定项目可再分发。
+
 ## Pull Request 要求
 
 请保持修改可核验、范围清晰：
