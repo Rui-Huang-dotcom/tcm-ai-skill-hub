@@ -17,97 +17,31 @@
 3. **跨学派并列对照**，明确列出相同点、差异与不可直接合并之处。
 4. **关键结论要求溯源**，优先给出原项目、文件名、章节或原文位置。
 
-## 重要说明：这是“路由器”，不是八套资料的镜像包
+## 一次安装，直接调用全部来源
 
-本仓库仅提供独立编写的选择规则、提问协议、来源目录和使用说明；**不复制、不镜像、不打包**下表原项目的完整内容、代码、提示词、课程材料或知识库。安装本 Skill 并不等于已经在你的 AI 平台中安装了全部八个原项目。
-
-当你的平台允许加载多个本地 Skill 或 GitHub 项目时，请按原作者说明安装你要用的来源项目，再加载本仓库的 `SKILL.md` 作为总入口。若平台不支持多 Skill，你仍可把本仓库作为选题与提问规范，点击原项目链接分别安装或查阅。
-
-
-## 安装与快速开始
-
-你可以选择**一次安装 Hub 与全部 8 个来源项目**，或只安装 Hub 再按需加载来源。Hub 是“统一入口和回答协议”，不是八个来源项目的镜像包；因此，**只安装 Hub 本身不代表八个项目的资料都已进入你的 AI**。
-
-### 第一步：选择一种安装方式
-
-#### 推荐：一次安装 Hub 与全部 8 个来源项目
-
-如果你使用 Claude Code、Cursor、Codex、OpenCode、OpenClaw 等支持 Agent Skills 的本地 Agent，推荐使用一键安装器。它会把总 Hub 与 8 个来源项目从各原作者的 GitHub 地址分别安装到你的电脑；你只需要执行一次命令。
-
-先预演，确认目标 Agent 和安装清单；这一步不会下载或修改任何内容：
-
-```bash
-npx github:Rui-Huang-dotcom/tcm-ai-skill-hub install-all --agent claude-code
-```
-
-确认无误后，加上 `--execute` 执行安装：
+复制下面一条命令，即可一次安装 **TCM AI Skill Hub + 8 个公开来源项目**。安装完成后，直接问“TCM”“倪海厦”或任意医家名称即可，无需再逐个安装或记住项目名。
 
 ```bash
 npx github:Rui-Huang-dotcom/tcm-ai-skill-hub install-all --agent claude-code --execute
 ```
 
-将 `claude-code` 替换为你的目标 Agent。来源项目默认保存于 `~/.tcm-ai-skill-hub/sources/`，安装状态会写入 `install-status.json`。详细说明、更新方式和失败处理见 [`docs/INSTALL_ALL.md`](./docs/INSTALL_ALL.md)。
+把 `claude-code` 换成你实际使用的 Agent，例如 `cursor`、`codex`、`opencode` 或 `openclaw`。
 
-> 这不是把第三方资料打包进本仓库。安装器会从每位原作者自己的公开地址直接克隆来源项目到你的电脑；Hub 只提供安装清单、统一入口和路由规则。
-
-#### 方式 A：让 Agent 直接从 GitHub 创建 / 加载（最适合非技术用户）
-
-如果你使用的 Agent 或办公型 AI 支持读取 GitHub 项目，直接复制下面这段话发送给它：
+安装完成后，你可以直接这样问：
 
 ```text
-请根据这个 GitHub 项目创建并加载一个 Skill：
-https://github.com/Rui-Huang-dotcom/tcm-ai-skill-hub
+请用倪海厦的资料解释桂枝汤与麻黄汤的方证差异。
 ```
-
-加载 Hub 后，再根据下方“选哪个项目”的说明，让 Agent 继续读取你需要的**原始项目**。例如，要学习倪海厦体系，可以继续发送：
 
 ```text
-请再根据这个 GitHub 项目创建并加载来源 Skill：
-https://github.com/jangviktor-web/nihaixia
-
-之后回答中医学习问题时，请按 TCM AI Skill Hub 的规则：
-标明资料范围与出处，并把课程体系观点和教材结论分开。
+请用 TCM 帮我安排《伤寒论》三周学习计划。
 ```
 
-这也是最接近普通用户操作习惯的路径：**给地址 → 加载成功 → 用一个真实学习问题测试**。如果平台只支持上传文件，可下载本仓库的 `SKILL.md` 后上传，再按原作者 README 分别导入所需来源。
+Hub 会自动选择合适的来源；如果需要同时参考两套资料，会在答案中分开标注，不会混成一个结论。
 
-#### 方式 B：只安装总 Hub（不自动安装 8 个来源项目）
+> 技术细节、更新、安装状态和排错说明见 [`docs/INSTALL_ALL.md`](./docs/INSTALL_ALL.md)。来源项目仍分别从原作者 GitHub 地址安装到用户电脑，本仓库不复制第三方资料。
 
-如果你只想安装 Hub 的路由规则而不安装全部来源，本仓库根目录包含有效的 `SKILL.md`，可用通用 Skills CLI 安装：[1]
-
-```bash
-npx skills add Rui-Huang-dotcom/tcm-ai-skill-hub
-```
-
-也可以使用完整地址：
-
-```bash
-npx skills add https://github.com/Rui-Huang-dotcom/tcm-ai-skill-hub
-```
-
-常用选项如下；具体哪些 Agent 可被自动识别，以命令行的交互提示为准：
-
-```bash
-# 安装到当前项目中的 Claude Code
-npx skills add Rui-Huang-dotcom/tcm-ai-skill-hub --agent claude-code
-
-# 全局安装，让已支持的 Agent 在不同项目中都可使用
-npx skills add Rui-Huang-dotcom/tcm-ai-skill-hub --global
-```
-
-> `npx skills add` 安装的是本 Hub 的选择规则。要让 Agent 实际读取某个来源项目，仍需按该项目自己的 README 继续安装或导入；不要因为安装了 Hub，就假定所有来源资料都已加载。
-
-#### 方式 C：传统 GitHub 下载 / 克隆（适合任何平台）
-
-有命令行时可克隆：
-
-```bash
-git clone https://github.com/Rui-Huang-dotcom/tcm-ai-skill-hub.git
-```
-
-没有命令行时，可在 GitHub 页面点击 **Code → Download ZIP**，解压后将 `SKILL.md` 上传或复制到你正在使用的 Agent 项目中。然后根据下表点击并安装相应来源项目。
-
-### 第二步：选择使用模式
+## 使用方式
 
 绝大多数人只需要用**默认简单模式**：直接说“倪海厦”或“TCM”，不必记住两个项目名称。Hub 会按你的问题自动选择资料，必要时再同时检索两个来源，并在答案末尾轻量说明本次实际使用了什么。
 
@@ -220,7 +154,3 @@ Hub 会把这识别为**系统学习任务**，优先安排学习路径；需要
 ## 许可证
 
 本仓库中由维护者独立撰写的导航、路由规则和文档以 [MIT License](./LICENSE) 发布。**这不改变任何原项目及其资料的版权和许可证。**
-
-## References
-
-[1]: https://github.com/vercel-labs/skills/blob/main/README.md "Skills CLI: Install a Skill from GitHub"
